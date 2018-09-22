@@ -2,6 +2,7 @@
 
 (function () {
   var defaultUrl = 'https://raw.github.com/sprintly/sprint.ly-culture/master/pr-template.md';
+  var sleekrTemplateUrl = 'https://raw.github.com/kusumandaru/chrome-pullrequest-templates/master/app/templates/bitbucket_sleekr.md';
   var options, isCustom;
 
   var isGH = window.location.href.match(/github.com/);
@@ -12,15 +13,15 @@
   function loadOptions (cb) {
     chrome.storage.sync.get({
       githubEnabled: true,
-      githubTemplateUrl: defaultUrl,
+      githubTemplateUrl: sleekrTemplateUrl,
       githubTemplateContent: '',
       bitbucketEnabled: true,
-      bitbucketTemplateUrl: defaultUrl,
+      bitbucketTemplateUrl: sleekrTemplateUrl,
       bitbucketTemplateContent: '',
       bitbucketOverwrite: true,
 
       customEnabled: true,
-      customTemplateUrl: defaultUrl,
+      customTemplateUrl: sleekrTemplateUrl,
       customRepoRegex: '',
       customRepoDescriptionID: ''
     }, function (items) {

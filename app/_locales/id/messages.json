@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Template Git Pull Request",
+    "description": "Template pull request"
+  },
+  "appDescription": {
+    "message": "Menampilkan template pull request pada github dan bitbucket.",
+    "description": "The description of the application"
+  }
+}
