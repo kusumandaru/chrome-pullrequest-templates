@@ -1,12 +1,12 @@
 {
   "name": "git-pull-request-template",
-  "version": "0.3.2",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tcrammond/chrome-pullrequest-templates.git"
+    "url": "https://github.com/kusumandaru/chrome-pullrequest-templates.git"
   },
   "bugs": {
-    "url": "https://github.com/tcrammond/chrome-pullrequest-templates/issues"
+    "url": "https://github.com/kusumandaru/chrome-pullrequest-templates/issues"
   },
   "dependencies": {
     "bower": "1.7.9",

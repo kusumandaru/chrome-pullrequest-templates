@@ -4,7 +4,7 @@
     "description": "Template pull request"
   },
   "appDescription": {
-    "message": "Menampilkan template pull request pada github dan bitbucket.",
+    "message": "Sleekr template pull request pada github dan bitbucket.",
     "description": "The description of the application"
   }
 }
