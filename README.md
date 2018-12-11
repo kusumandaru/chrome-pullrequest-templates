@@ -1,4 +1,7 @@
 # chrome-pullrequest-templates
+
+<img src="https://ci.appveyor.com/api/projects/status/github/kusumandaru/chrome-pullrequest-templates?branch=master&svg=true">
+
 Chrome extension to pre-populate pull requests with a template on GitHub and Bitbucket.
 Templates are loaded from a URL.
 
