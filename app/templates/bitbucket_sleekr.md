@@ -7,6 +7,7 @@
 #### Deployment notes
 #### Screenshots (if appropriate)
 #### Definition of Done:
+- [ ] Does this PR require env configuration changes ?
 - [ ] Does this PR require Database changes ?
 - [ ] Does this PR require a regression test by QA ? All fixes require a regression test.
 - [ ] Does this add new dependencies? (network setup, new 3rd party services)
