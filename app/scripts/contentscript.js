@@ -1,27 +1,27 @@
 'use strict';
 
 (function () {
-  var defaultUrl = 'https://raw.github.com/sprintly/sprint.ly-culture/master/pr-template.md';
-  var sleekrTemplateUrl = 'https://raw.github.com/kusumandaru/chrome-pullrequest-templates/master/app/templates/bitbucket_sleekr.md';
+  var defaultUrl = 'https://raw.github.com/kusumandaru/chrome-pullrequest-templates/master/app/templates/bitbucket_sleekr.md';
   var options, isCustom;
 
   var isGH = window.location.href.match(/github.com/);
   var isBB = window.location.href.match(/bitbucket.org/);
+  var editableContent = 'editable-content-here';
 
   loadOptions(getTemplate);
 
   function loadOptions (cb) {
     chrome.storage.sync.get({
       githubEnabled: true,
-      githubTemplateUrl: sleekrTemplateUrl,
+      githubTemplateUrl: defaultUrl,
       githubTemplateContent: '',
       bitbucketEnabled: true,
-      bitbucketTemplateUrl: sleekrTemplateUrl,
+      bitbucketTemplateUrl: defaultUrl,
       bitbucketTemplateContent: '',
       bitbucketOverwrite: true,
 
       customEnabled: true,
-      customTemplateUrl: sleekrTemplateUrl,
+      customTemplateUrl: defaultUrl,
       customRepoRegex: '',
       customRepoDescriptionID: ''
     }, function (items) {
@@ -65,7 +65,7 @@
     if (el === null) return;
 
     if (isGH)
-      return insertInput(el, template, true);
+    return insertInput(el, template, true);
 
     // If this looks like an "Edit PR" page, do not insert the template.
     if (window.location.href.indexOf('/update') !== -1) return;
@@ -87,10 +87,19 @@
 
   // New contenteditable editor
   function insertContenteditable (el, template, overwrite) {
-    console.log(el.innerHTML)
     setTimeout(function () {
       if (overwrite) {
-        el.innerHTML = marked(template);
+        var markedTemplate = marked(template);
+        var existingContent = el.innerHTML;
+        if (markedTemplate.includes(editableContent) && existingContent) {
+          markedTemplate = markedTemplate.replace(editableContent, existingContent)
+                                         .replace(/<p[^>]*>/g, '')
+                                         .replace(/<\/p>/g, '')
+                                         .replace(/<br>/g, '');
+          console.log(markedTemplate);
+        }
+        
+        el.innerHTML = markedTemplate;
       } else {
         el.innerHTML = el.innerHTML + ((el.innerHTML && el.innerHTML.length ? '<br/>' : '') + marked(template));
       }

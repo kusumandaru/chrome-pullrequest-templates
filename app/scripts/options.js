@@ -1,6 +1,6 @@
 'use strict';
 (function () {
-  var defaultUrl = 'https://raw.github.com/sprintly/sprint.ly-culture/master/pr-template.md';
+  var defaultUrl = 'https://raw.github.com/kusumandaru/chrome-pullrequest-templates/master/app/templates/bitbucket_sleekr.md';
 
   // Saves options to chrome.storage
   function save_options() {
